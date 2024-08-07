@@ -17,6 +17,8 @@ echo "[$(date)]: Creating environment with Python ${_VERSION_}"
 # Note: The 'Scripts' directory may vary depending on your operating system
 python${_VERSION_} -m venv ${venv_name}
 
+
+
 # echo [$(date)]: "Activating environment"
 # source ./venv/Scripts/activate
 
@@ -27,8 +29,8 @@ echo [$(date)]: "Installing requirements"
 pip install -r requirements.txt
 
 
-echo [$(date)]: "Initializing git repository"
-git init
+# echo [$(date)]: "Initializing git repository"
+# git init
 
 # # to remove everything -
 # # rm -rf env/ .gitignore conda.yaml README.md .git/
