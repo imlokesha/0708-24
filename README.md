@@ -10,8 +10,20 @@ curl https://raw.githubusercontent.com/imlokesha/general_template/main/.gitignor
 ```bash
 curl https://raw.githubusercontent.com/imlokesha/general_template/main/init_setup.sh > init_setup.sh
 ```
+
 ## Tensorflow verification
 
+- To Check both the CPU and GPU
+```bash
+python -c "import tensorflow as tf;print(tf.config.list_physical_devices())"
+```
+
+- To Check both the CPU
+```bash
+python -c "import tensorflow as tf;print(tf.config.list_physical_devices('CPU'))"
+```
+
+- To Check both the GPU
 ```bash
 python -c "import tensorflow as tf;print(tf.config.list_physical_devices('GPU'))"
 ```
@@ -22,7 +34,7 @@ python -c "import tensorflow as tf;print(tf.config.list_physical_devices('GPU'))
 ```bash
 mkdir TensorFlow && cd TensorFlow
 ```
-## Clone the TensorFlow models folder here
+## Clone the TensorFlow models folder here(object detection API can be found in this model)
 
 ```bash
 git clone https://github.com/tensorflow/models.git
@@ -45,9 +57,9 @@ echo "TensorFlow/models" >> .gitignore
         ```
         sudo apt install -y protobuf-compiler
         ```
-- Unzip into root folder and add `<PATH TO protoc folder>/bin` into sytstem environment variable
+- Unzip into root(work) folder and add `<PATH TO protoc folder>/bin` into sytstem environment variable
 
-- run the following command:
+- run the following command(To convert Prtotoc file to python):
 ```bash
 cd TensorFlow/models/research
 protoc object_detection/protos/*.proto --python_out=.
@@ -66,7 +78,7 @@ cp object_detection/packages/tf2/setup.py .
 python -m pip install .
 ```
 
-## test yout intallation -
+## test yout installation -
 ```bash
 python object_detection/builders/model_builder_tf2_test.py
 ```
